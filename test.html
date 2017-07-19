@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GBK">
+    <title>JavaScript learn</title>
+    <script type="text/javascript" src="include.js" ></script>
+</head>
+<body>
+<p><a href="http://www.w3school.com.cn/js/js_intro.asp"><h1>w3c 链接</h1></a></p>
+
+<p>JavaScript 能够直接写入 HTML 输出流中</p>
+<script>
+    document.write("<h1>This is a heading</h1>");
+    document.write("<p>This is a paragraph.</p>");
+</script>
+
+<p>
+    只能在HTML输出流中使用<strong>document.write</strong>如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+</p>
+<hr/>
+
+<!--alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。-->
+<button type="button" onclick="alert('哈哈哈')">请点击这里</button>
+<hr/>
+
+<script type="text/javascript">
+    function changeHtml() {
+        const x = document.getElementById("id_changed_content");
+        x.innerHTML = "通过JavaScript改变后的内容";
+    }
+</script>
+<p id="id_changed_content">JavaScript 能改变 HTML 元素的内容。</p>
+
+<button type="button" onclick="changeHtml()">通过JavaScript改变html的内容</button>
+<hr/>
+
+<p>
+<script type="text/javascript">
+    function changeBgColor() {
+        const button1 = document.getElementById("button1");
+        button1.style.color = "#ff0000";
+    }
+</script>
+    <button id="button1" type="button" onclick="changeBgColor()">改变颜色</button>
+</p>
+<hr>
+
+<p>
+<script type="text/javascript">
+    function validateInput() {
+        const inputValue = document.getElementById("id_input").value;
+        if (inputValue == "") {
+            alert("please input")
+        } else if (isNaN(inputValue)) {
+            alert("not number")
+        } else {
+            alert("is number")
+        }
+    }</script>
+    <input id="id_input" type="text" title="input">
+    <button type="button" onclick="validateInput()">验证是否是数字</button>
+</p>
+
+<p>
+    <button type="button" onclick="alertHaHa()">引用外部的JavaScript</button>
+</p>
+
+<p>
+<script type="text/javascript">
+    function aaa(){
+        document.write("啊啊啊");
+    }
+</script>
+    <button type="button" onclick="aaa()">html加载完成后再执行document.write会覆盖全部内容</button>
+</p>
+
+
+<!--我们把 JavaScript 放到了页面代码的底部，这样就可以确保在 <p> 元素创建之后再执行脚本。-->
+
+</body>
+</html>
