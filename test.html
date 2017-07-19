@@ -19,14 +19,14 @@
 </p>
 <hr/>
 
-<!--alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。-->
+<!-- alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。 -->
 <button type="button" onclick="alert('哈哈哈')">请点击这里</button>
 <hr/>
 
 <script type="text/javascript">
     function changeHtml() {
         const x = document.getElementById("id_changed_content");
-        x.innerHTML = "通过JavaScript改变后的内容";
+        x.innerHTML = '通过"JavaScript"改变后的内容';//"通过'JavaScript'改变后的内容";外层引号不能和内层引号相同
     }
 </script>
 <p id="id_changed_content">JavaScript 能改变 HTML 元素的内容。</p>

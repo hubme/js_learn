@@ -1,7 +1,7 @@
 /**
- * 外部脚本不能包含 <script> 标签
+ * 澶栭儴鑴氭湰涓嶈兘鍖呭惈 <script> 鏍囩
  * Created by Administrator on 2017/7/19.
  */
 function alertHaHa() {
-    alert("引用外部JavaScript")
+    alert("寮曠敤澶栭儴JavaScript")
 }
