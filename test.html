@@ -3,7 +3,7 @@
 <head>
     <meta charset="GBK">
     <title>JavaScript learn</title>
-    <script type="text/javascript" src="include.js" ></script>
+    <script type="text/javascript" src="js/include.js" ></script><!-- 写成"/js/include.js"无效 -->
 </head>
 <body>
 <p><a href="http://www.w3school.com.cn/js/js_intro.asp"><h1>w3c 链接</h1></a></p>
@@ -74,6 +74,23 @@
     <button type="button" onclick="aaa()">html加载完成后再执行document.write会覆盖全部内容</button>
 </p>
 
+<p>
+<script type="text/javascript">
+    function functionWithParams(name, age){
+        alert("name: "+name+",age: "+age);
+    }
+</script>
+    <button type="button" onclick="functionWithParams('VanceKing', '26')">带参数的function</button>
+</p>
+
+<p>
+<script type="text/javascript">
+    function getText(a, b){
+        return a * b;
+    }
+</script>
+    <button type="button" onclick="alert(getText(2, 3))">带返回值的function</button>
+</p>
 
 <!--我们把 JavaScript 放到了页面代码的底部，这样就可以确保在 <p> 元素创建之后再执行脚本。-->
 
