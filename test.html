@@ -1,98 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="GBK">
     <title>JavaScript learn</title>
-    <script type="text/javascript" src="js/include.js" ></script><!-- 写成"/js/include.js"无效 -->
+    <script type="text/javascript" src="js/include.js"></script>
+    <!-- 写成"/js/include.js"无效 -->
 </head>
-<body>
-<p><a href="http://www.w3school.com.cn/js/js_intro.asp"><h1>w3c 链接</h1></a></p>
 
-<p>JavaScript 能够直接写入 HTML 输出流中</p>
-<script>
+<body>
+    <p><a href="http://www.w3school.com.cn/js/js_intro.asp"><h1>w3c 链接</h1></a></p>
+    <p>JavaScript 能够直接写入 HTML 输出流中</p>
+    <script>
     document.write("<h1>This is a heading</h1>");
     document.write("<p>This is a paragraph.</p>");
-</script>
-
-<p>
-    只能在HTML输出流中使用<strong>document.write</strong>如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
-</p>
-<hr/>
-
-<!-- alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。 -->
-<button type="button" onclick="alert('哈哈哈')">请点击这里</button>
-<hr/>
-
-<script type="text/javascript">
+    </script>
+    <p>
+        只能在HTML输出流中使用<strong>document.write</strong>如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+    </p>
+    <hr/>
+    <!-- alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。 -->
+    <button type="button" onclick="alert('哈哈哈')">请点击这里</button>
+    <hr/>
+    <script type="text/javascript">
     function changeHtml() {
         const x = document.getElementById("id_changed_content");
-        x.innerHTML = '通过"JavaScript"改变后的内容';//"通过'JavaScript'改变后的内容";外层引号不能和内层引号相同
+        x.innerHTML = '通过"JavaScript"改变后的内容'; //"通过'JavaScript'改变后的内容";外层引号不能和内层引号相同
     }
-</script>
-<p id="id_changed_content">JavaScript 能改变 HTML 元素的内容。</p>
-
-<button type="button" onclick="changeHtml()">通过JavaScript改变html的内容</button>
-<hr/>
-
-<p>
-<script type="text/javascript">
-    function changeBgColor() {
-        const button1 = document.getElementById("button1");
-        button1.style.color = "#ff0000";
-    }
-</script>
-    <button id="button1" type="button" onclick="changeBgColor()">改变颜色</button>
-</p>
-<hr>
-
-<p>
-<script type="text/javascript">
-    function validateInput() {
-        const inputValue = document.getElementById("id_input").value;
-        if (inputValue == "") {
-            alert("please input")
-        } else if (isNaN(inputValue)) {
-            alert("not number")
-        } else {
-            alert("is number")
+    </script>
+    <p id="id_changed_content">JavaScript 能改变 HTML 元素的内容。</p>
+    <button type="button" onclick="changeHtml()">通过JavaScript改变html的内容</button>
+    <hr/>
+    <p>
+        <script type="text/javascript">
+        function changeBgColor() {
+            const button1 = document.getElementById("button1");
+            button1.style.color = "#ff0000";
         }
-    }</script>
-    <input id="id_input" type="text" title="input">
-    <button type="button" onclick="validateInput()">验证是否是数字</button>
-</p>
+        </script>
+        <button id="button1" type="button" onclick="changeBgColor()">改变颜色</button>
+    </p>
+    <hr>
+    <p>
+        <script type="text/javascript">
+        function validateInput() {
+            const inputValue = document.getElementById("id_input").value;
+            if (inputValue == "") {
+                alert("please input")
+            } else if (isNaN(inputValue)) {
+                alert("not number")
+            } else {
+                alert("is number")
+            }
+        }
+        </script>
+        <input id="id_input" type="text" title="input">
+        <button type="button" onclick="validateInput()">验证是否是数字</button>
+    </p>
+    <p>
+        <button type="button" onclick="globalAlert('哈哈哈')">引用外部的JavaScript</button>
+    </p>
+    <p>
+        <script type="text/javascript">
+        function aaa() {
+            document.write("啊啊啊");
+        }
+        </script>
+        <button type="button" onclick="aaa()">html加载完成后再执行document.write会覆盖全部内容</button>
+    </p>
+    <p>
+        <script type="text/javascript">
+        function functionWithParams(name, age) {
+            alert("name: " + name + ",age: " + age);
+        }
+        </script>
+        <button type="button" onclick="functionWithParams('VanceKing', '26')">带参数的function</button>
+    </p>
+    <p>
+        <script type="text/javascript">
+        function getText(a, b) {
+            return a * b;
+        }
+        </script>
+        <button type="button" onclick="alert(getText(2, 3))">带返回值的function</button>
+    </p>
+    <p>
+        For/In 循环.环遍历对象的属性
+        <script type="text/javascript">
+        function forPerson(argument) {
+            const person = { name: "VanceKing", age: 27 };
+            var text = ""; //如果不定义为空字符串，会出现：undefinedVanceKing27
+            for (x in person) { text += person[x]; }
+            return text;
+        }
+        </script>
+        <button type="button" onclick="alert(forPerson())">遍历对象的属性</button>
+    </p>
+    <hr>
+    <p>
+        <button type="button" onclick="throwException()">JavaScript抛出异常</button>
+        <script type="text/javascript">
+        function throwException() {
+            try {
+                alertt("哈哈哈");
+            } catch (err) {
+                alert("出错了。" + err.message);
+            }
+        }
+        </script>
+    </p>
+    <hr>
+    <p>
+        <script>
+        function myFunction() {
+            try {
+                var x = document.getElementById("demo").value;
+                if (x == "") throw "值为空";
+                if (isNaN(x)) throw "不是数字";
+                if (x > 10) throw "太大";
+                if (x < 5) throw "太小";
 
-<p>
-    <button type="button" onclick="alertHaHa()">引用外部的JavaScript</button>
-</p>
-
-<p>
-<script type="text/javascript">
-    function aaa(){
-        document.write("啊啊啊");
-    }
-</script>
-    <button type="button" onclick="aaa()">html加载完成后再执行document.write会覆盖全部内容</button>
-</p>
-
-<p>
-<script type="text/javascript">
-    function functionWithParams(name, age){
-        alert("name: "+name+",age: "+age);
-    }
-</script>
-    <button type="button" onclick="functionWithParams('VanceKing', '26')">带参数的function</button>
-</p>
-
-<p>
-<script type="text/javascript">
-    function getText(a, b){
-        return a * b;
-    }
-</script>
-    <button type="button" onclick="alert(getText(2, 3))">带返回值的function</button>
-</p>
-
-<!--我们把 JavaScript 放到了页面代码的底部，这样就可以确保在 <p> 元素创建之后再执行脚本。-->
-
+                var y = document.getElementById("mess");
+                y.innerHTML = "value: " + x;
+            } catch (err) {
+                var y = document.getElementById("mess");
+                y.innerHTML = "错误：" + err + "。";
+            }
+        }
+        </script>
+        请输入 5 到 10 之间的数字：
+        <input id="demo" type="text">
+        <button type="button" onclick="myFunction()">测试输入值</button>
+    </p>
+    <p id="mess"></p>
+    <!--我们把 JavaScript 放到了页面代码的底部，这样就可以确保在 <p> 元素创建之后再执行脚本。-->
 </body>
+
 </html>
