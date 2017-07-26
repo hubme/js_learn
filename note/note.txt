@@ -77,3 +77,11 @@ var cars=   new Array;
 var person= new Object;
 
 JavaScript 中的所有事物都是对象：字符串、数字、数组、日期，等等。
+
+16. 使用了document对象的querySelector（）方法来获得此引用。querySelector() 需要一条信息 — — 用该元素的 CSS 选择器选择你想要的引用的元素。
+eg:
+<dev class="guessField"> <input type = "text"></dev>
+var guessField = document.querySelector('.guessField');
+
+guessField.focus();
+不包含对表单元素引用的变量不会有 focus （） 方法可供它们执行。
