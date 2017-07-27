@@ -68,7 +68,7 @@ name=person["lastname"];
 Undefined 这个值表示变量不含有值。 可以通过将变量的值设置为 null 来清空变量。
 person=null;
 
-15. 声明变量类型
+15. 声明变量类型 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps/Variables
 当您声明新变量时，可以使用关键词 "new" 来声明其类型：
 var carname=new String;
 var x=      new Number;
@@ -76,12 +76,19 @@ var y=      new Boolean;
 var cars=   new Array;
 var person= new Object;
 
+var name="VanceKing";typeof(name);
+
 JavaScript 中的所有事物都是对象：字符串、数字、数组、日期，等等。
 
 16. 使用了document对象的querySelector（）方法来获得此引用。querySelector() 需要一条信息 — — 用该元素的 CSS 选择器选择你想要的引用的元素。
 eg:
 <dev class="guessField"> <input type = "text"></dev>
-var guessField = document.querySelector('.guessField');
+var guessField = document.querySelector('.guessField');//注意：是'.guessField'不是'guessField'
 
 guessField.focus();
-不包含对表单元素引用的变量不会有 focus （） 方法可供它们执行。
+不包含对表单元素引用的变量不会有 focus()方法可供它们执行。
+
+17. prompt("What is your name?");弹出输入框
+    alert("warnning");警告弹窗
+    Math.random():生成一个在0和1之间的十进制随机数，例如 0.5675493843。
+    Math.floor():向下舍入到与它最接近的整数。

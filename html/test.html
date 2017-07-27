@@ -92,9 +92,14 @@
         For/In 循环.环遍历对象的属性
         <script type="text/javascript">
             function forPerson(argument) {
-                const person = { name: "VanceKing", age: 27 };
+                const person = {
+                    name: "VanceKing",
+                    age: 27
+                };
                 var text = ""; //如果不定义为空字符串，会出现：undefinedVanceKing27
-                for (x in person) { text += person[x]; }
+                for (x in person) {
+                    text += person[x];
+                }
                 return text;
             }
         </script>
@@ -136,7 +141,33 @@
         <input id="demo" type="text">
         <button type="button" onclick="myFunction()">测试输入值</button>
     </p>
-    <p id="mess"></p>
+
+    <p>
+        <button type="button" onclick="pressMe()">Press me</button>
+        <script>
+            function pressMe() {
+                var name = prompt("What is your name?");
+                alert("hello " + name + ", nice to see you!")
+            }
+        </script>
+    </p>
+
+
+    <!--我们把 JavaScript 放到了页面代码的底部，这样就可以确保在 <p> 元素创建之后再执行脚本。-->
+</body>
+
+</html>
+    <p>
+        <button type="button" onclick="pressMe()">Press me</button>
+        <script>
+            function pressMe() {
+                var name = prompt("What is your name?");
+                alert("hello " + name + ", nice to see you!")
+            }
+        </script>
+    </p>
+
+
     <!--我们把 JavaScript 放到了页面代码的底部，这样就可以确保在 <p> 元素创建之后再执行脚本。-->
 </body>
 
