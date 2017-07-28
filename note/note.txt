@@ -92,3 +92,29 @@ guessField.focus();
     alert("warnning");警告弹窗
     Math.random():生成一个在0和1之间的十进制随机数，例如 0.5675493843。
     Math.floor():向下舍入到与它最接近的整数。
+
+18. var a = "123"+456; a = "123456";
+    var a = "123"; var number = Number(a); number = 123;
+    var a = 123; var b = a.toString(); b = "123";
+    //slice(片，片段):字符串截取.[a, b)
+    var a = "abcd"; var b = a.slice(1, 3); b = "bc";/var a = "abcd"; var b = a.slice(1); b = "bcd";
+    
+    //https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
+    var random = ['tree', 795, [0, 1, 2]]; random[0] = "tree"; random[1] = 795;random[2][1] = 1;
+
+    var myData = 'a,b,c';var myData2 = '1,2,3';
+    myData.split(',') = ["a","b","c"]; myData2.split(',') = ["1","2","3"];
+
+    var a = [1,2,3]; var b = ["1","2","3"]; a.join(":") = "1:2:3"; b.join(":") = "1:2:3";
+    a.toString() = "1,2,3";//不能指定分隔符
+
+    var a = [1,2,3]; a.push("aaa");//追加 a = [1,2,3,"aaa"]; a.pop();//从最后删除 a = [1,2,3]
+
+    var a = [1,2,3]; a.unshift("abc");//添加到第一位 a = ["abc",1,2,3]; a.shift();//从第一位删除 a = [1,2,3];
+
+19. Functions 与 methods
+    built in browser functions are not functions — they are methods. 
+    The distinction is that methods are functions defined inside objects. Built-in browser functions (methods) and 
+    variables (which are called properties) are stored inside structured objects, to make the code more efficient and easier to handle.
+    functions defined in your code, not inside the browser. 
+    

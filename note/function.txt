@@ -1,3 +1,5 @@
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+
 1.JavaScript 变量的生存期
 JavaScript 变量的生命期从它们被声明的时间开始。
 局部变量会在函数运行以后被删除。
@@ -15,3 +17,13 @@ var x = 6 + "8"; ---> var = 68;
 给定 x=5
 ==	等于				x==8  为 false
 ===	全等（值和类型）	x===5 为 true；x==="5" 为 false
+
+5.方法和匿名方法
+function myFunction() {
+  alert('hello');
+}
+
+var myAlert = function() {
+  alert('hello');
+}
+myAlert();

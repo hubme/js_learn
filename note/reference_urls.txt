@@ -1,3 +1,4 @@
 入门：https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/First_steps
 常见错误： https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors
 JavaScript关键字： https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords
+转义字符：https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Escape_notation
