@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>State 和 Props</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<a href="http://www.runoob.com/react/react-state.html">链接</a>
+<div id="panel"></div>
+</body>
+<script type="text/babel">
+    var LikeButton = React.createClass({
+        getInitialState: function () {
+            return {liked: false};
+        },
+        handleClick: function (event) {
+            this.setState({liked: !this.state.liked});
+        },
+        render: function () {
+            var text = this.state.liked ? '喜欢' : '不喜欢';
+            return (
+                    <p onClick={this.handleClick}>
+                        你<b>{text}</b>吗？点击切换。
+                    </p>
+            );
+        }
+    });
+
+    ReactDOM.render(
+            <LikeButton/>,
+        document.getElementById('panel')
+    );
+</script>
+
+</html>
