@@ -17,9 +17,13 @@
 <div id="panel"></div>
 我们可以在 JSX 中使用 JavaScript 表达式。表达式写在花括号 {} 中
 <div id="panel2"></div>
+<hr/>
 <div id="panel3"></div>
+<hr/>
 <div id="panel4"></div>
+<hr/>
 <div id="panel5"></div>
+<hr/>
 <div id="panel6"></div>
 
 
@@ -29,7 +33,6 @@
 <script type="text/babel">
     ReactDOM.render(
             <div>
-                <hr/>
                 <h1>React 学习</h1>
                 <h2>Hello, React</h2>
                 <p data-myattribute="somevalue">这是一个很不错的 JavaScript 库!</p>
@@ -38,7 +41,6 @@
 
     ReactDOM.render(
             <div>
-                <hr/>
                 <h3>表达式1+1={1 + 1}</h3>
             </div>
         , document.getElementById('panel2'));
@@ -46,7 +48,6 @@
     var i = 1;
     ReactDOM.render(
             <div>
-                <hr/>
                 <h4>在 JSX 中不能使用 if else 语句，但可以使用 conditional (三元运算) 表达式来替代。以下实例中如果变量 i 等于 1 浏览器将输出 true, 如果修改 i 的值，则会输出
                     false. </h4>
                 <h2>{i == 1 ? 'TRUE' : 'FALSE'}</h2>
@@ -56,7 +57,6 @@
     var myStyle = {fontSize: 24, color: '#FF0000'};
     ReactDOM.render(
             <div>
-                <hr/>
                 <h2 style={myStyle}>React 推荐使用内联样式。</h2>我们可以使用 camelCase 语法来设置内联样式. React 会在指定元素数字后自动添加 px 。以下实例演示了为 h1
                 元素添加 myStyle 内联样式：
             </div>
@@ -65,7 +65,6 @@
     var list = [<h3>我是第一个</h3>, <h3>我是第二个</h3>];
     ReactDOM.render(
             <div>
-                <hr/>
                 JSX 允许在模板中插入数组，数组会自动展开所有成员
                 {list}
             </div>
@@ -75,7 +74,6 @@
     ReactDOM.render(
             <div>
                 {/*我是注释*/}
-                <hr/>
                 React 可以渲染 HTML 标签 (strings) 或 React 组件 (classes)。
                 要渲染 HTML 标签，只需在 JSX 里使用小写字母的标签名。
                 要渲染 React 组件，只需创建一个大写字母开头的本地变量。
