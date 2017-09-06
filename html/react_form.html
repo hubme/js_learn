@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React 表单与事件</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+一个简单的实例.
+在实例中我们设置了输入框 input 值value = {this.state.data}。在输入框值发生变化时我们可以更新 state。我们可以使用 onChange 事件来监听 input 的变化，并修改 state。
+<div id="container"></div>
+<hr/>
+实例 2
+在以下实例中我们将为大家演示如何在子组件上使用表单。 onChange 方法将触发 state 的更新并将更新的值传递到子组件的输入框的 value 上来重新渲染界面。
+你需要在父组件通过创建事件句柄 (handleChange) ，并作为 prop (updateStateProp) 传递到你的子组件上。
+<div id="container2"></div>
+<hr/>
+React 事件
+以下实例演示通过 onClick 事件来修改数据：
+<div id="container3"></div>
+<hr/>
+当你需要从子组件中更新父组件的 state 时，你需要在父组件通过创建事件句柄 (handleChange) ，并作为 prop (updateStateProp) 传递到你的子组件上。实例如下：
+<div id="container4"></div>
+</body>
+<script type="text/babel">
+    const HelloMessage =  React.createClass({
+        getInitialState: function() {
+            return {value: 'Hello React!'};
+        },
+        handleChange: function(event){
+            this.setState({value: event.target.value})
+        },
+        render: function(){
+            const result = this.state.value;
+            return <div>
+                        <input type="text" vaule={result} onChange={this.handleChange}/>
+                        <h4>{result}</h4>
+                    </div>
+        }
+    });
+
+    ReactDOM.render(
+        <HelloMessage />,
+        document.getElementById('container')
+    );
+
+    var Content = React.createClass({
+      render: function() {
+        return  <div>
+                <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp} /> 
+                <h4>{this.props.myDataProp}</h4>
+                </div>;
+      }
+    });
+    var HelloMessage2 = React.createClass({
+      getInitialState: function() {
+        return {value: 'Hello Runoob!'};
+      },
+      handleChange: function(event) {
+        this.setState({value: event.target.value});
+      },
+      render: function() {
+        var value = this.state.value;
+        return <div>
+                <Content myDataProp = {value} 
+                  updateStateProp = {this.handleChange}></Content>
+               </div>;
+      }
+    });
+    ReactDOM.render(
+      <HelloMessage2 />,
+      document.getElementById('container2')
+    );
+
+
+    var HelloMessage3 = React.createClass({
+      getInitialState: function() {
+        return {value: 'Hello Runoob!'};
+      },
+      handleChange: function(event) {
+        this.setState({value: 'Hello React'})
+      },
+      render: function() {
+        var value = this.state.value;
+        return <div>
+                <button onClick={this.handleChange}>点我</button>
+                <h4>{value}</h4>
+               </div>;
+      }
+    });
+    ReactDOM.render(
+      <HelloMessage3 />,
+      document.getElementById('container3')
+    );
+
+    var Content2 = React.createClass({
+      render: function() {
+        return  <div>
+                  <button onClick = {this.props.updateStateProp}>点我</button>
+                  <h4>{this.props.myDataProp}</h4>
+               </div>
+      }
+    });
+    var HelloMessage4 = React.createClass({
+      getInitialState: function() {
+        return {value: 'Hello Runoob!'};
+      },
+      handleChange: function(event) {
+        this.setState({value: 'Hello React'})
+      },
+      render: function() {
+        var value = this.state.value;
+        return <div>
+                <Content2 myDataProp = {value} updateStateProp = {this.handleChange} />
+               </div>;
+      }
+    });
+    ReactDOM.render(
+      <HelloMessage4 />,
+      document.getElementById('container4')
+    );
+</script>
+</html>
