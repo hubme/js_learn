@@ -12,8 +12,29 @@
 <h2>React State(状态)</h2>
 React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。<br>
 React 里，只需更新组件的 state，然后根据新的 state 重新渲染用户界面（不要操作 DOM）。<br>
-以下实例中创建了 LikeButton 组件，getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。
+以下实例中创建了 LikeButton 组件，getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。当用户点击组件，导致状态变化，this.setState
+方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。
 <div id="panel"></div>
+<hr/>
+<h2>React Props</h2>
+state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。<br/>
+以下实例演示了如何在组件中使用 props：
+<div id="container"></div>
+<hr/>
+<h2>默认 Props</h2>
+可以通过 getDefaultProps() 方法为 props 设置默认值，实例如下：
+<div id="container2"></div>
+<hr/>
+<h2>State 和 Props 组合使用</h2>
+以下实例演示了如何在应用中组合使用 state 和 props 。我们可以在父组件中设置 state， 并通过在子组件上使用 props 将其传递到子组件上。在 render 函数中, 我们设置 name 和 site
+来获取父组件传递过来的数据。
+<div id="container3"></div>
+<hr/>
+<h2>Props 验证</h2>
+Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用，React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有效。当向 props 传入无效数据时，JavaScript
+控制台会抛出警告。
+以下实例创建一个 Mytitle 组件，属性 title 是必须的且是字符串，非字符串类型会自动转换为字符串 ：
+<div id="container4"></div>
 </body>
 <script type="text/babel">
     const LikeButton = React.createClass({
@@ -37,6 +58,78 @@ React 里，只需更新组件的 state，然后根据新的 state 重新渲染�
             <LikeButton />,
         document.getElementById('panel')
     );
+
+    const HelloMessage = React.createClass({
+        getDefaultProps: function () {
+            return {
+                name: "it's a name."
+            }
+        },
+        render: function () {
+            return <h2>Hello {this.props.name}</h2>
+        }
+    });
+
+    ReactDOM.render(
+            <HelloMessage name="World"/>,
+        document.getElementById('container')
+    );
+
+    ReactDOM.render(
+            <HelloMessage/>,
+        document.getElementById('container2')
+    );
+
+    const Name = React.createClass({
+        render: function () {
+            return ( <h1>{this.props.name}</h1> );
+        }
+    });
+
+    const Link = React.createClass({
+        render: function () {
+            return ( <a href={this.props.site}> {this.props.site} </a> );
+        }
+    });
+
+    const WebSite = React.createClass({
+        //写成getInitialState无效
+        getDefaultProps: function () {
+            return {
+                name: "React Native",
+                site: "https://facebook.github.io/react/"
+            }
+        },
+        render: function () {
+            return (
+                    <div>
+                        <Name name={this.props.name}/>
+                        <Link site={this.props.site}/>
+                    </div>
+            )
+        }
+    });
+
+    ReactDOM.render(
+            <WebSite />,
+        document.getElementById('container3')
+    );
+    
+    const title = "标题";
+    const MyTitleName = React.createClass({
+        propTypes: {
+            title: React.PropTypes.string.isRequired,
+        },
+        render: function(){
+            return <h2>{this.props.title}</h2>
+        }
+    });
+
+    ReactDOM.render(
+        <MyTitleName title={title}/>,
+        document.getElementById('container4')
+    );
+
 </script>
 
 </html>
