@@ -88,10 +88,20 @@ forceUpdate()方法适用于this.props和this.state之外的组件重绘（如�
         }
     });
 
+    // 1、 ReactDOM.render是React的最基本的方法，用于将模板转换成HTML语言，渲染DOM，并插入指定的DOM节点中.
+    // 2、 JSX必须借助React环境运行
+    // 3、 JSX标签其实就是HTML标签，只不过我们在JS中书写的时候不用""括起来，可以像XML一样书写
+    // 4、 转换：JSX语法能够让我们更直观的看到组件的DOM结构，不能直接在浏览器上运行,最终会转换成JS代码来运行.
+    // 5、 在JSX中运行JS代码。使用{}括起来
     ReactDOM.render(
         <Counter />,
         document.getElementById('message')
     );
+
+    /* ReactDOM.render(
+        React.createElement("h1", null, "Hello React"),
+        document.getElementById("message")
+    ); */
 </script>
 
 </html>
