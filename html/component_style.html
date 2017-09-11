@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- React的核心库 -->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <!-- 提供与DOM相关的功能 -->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <!-- 将JSX语法转换成JS语法 -->
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+
+    <style>
+        .pStyle {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+<script type="text/babel">
+/* 
+    设置组件的样式：
+    1、内联样式
+    2、对象样式
+    3、选择器样式
+ */
+
+    const hStyle = {
+        backgroudColor:"green",
+        color:"red"
+    }
+
+    const HelloMessage = React.createClass({
+        render:function() {
+            return (
+                //内联样式。外面大括号是JSX语法，里面大括号代表对象
+                <div style={{backgroudColor:"yellow", borderWidth:5, borderColor:"black", borderStyle:"solid"}}>
+                    {/* 对象样式 */}
+                    <h2 style={hStyle}>{this.props.firstRow}</h2>
+                    {/* 选择器样式.是className不是class.class是React的保留字.类似的有htmlFor代替for */}
+                    <p className="pStyle">{this.props.secondRow}</p>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <HelloMessage firstRow="Hello" secondRow="React"/>,
+        document.getElementById('container')
+    );
+</script>
+</html>
