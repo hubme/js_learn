@@ -22,7 +22,9 @@ props是组件自身的属性，一般用于嵌套的内外层组件中，负责
 state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。<br/>
 以下实例演示了如何在组件中使用 props：
 <div id="container"></div>
-<div id="containeraaa"></div>
+<hr/>
+this.props.children：表示组件的所有子节点
+<div id="container_children"></div>
 <hr/>
 <h2>默认 Props</h2>
 可以通过 getDefaultProps() 方法为 props 设置默认值，实例如下：
@@ -89,10 +91,34 @@ Props 验证使用 propTypes，它可以保证我们的应用组件被正确使�
             <HelloMessage name="World"/>,
         document.getElementById('container')
     );
-
+    
     ReactDOM.render(
             <HelloMessage/>,
         document.getElementById('container2')
+    );
+
+    var ListComponent = React.createClass({
+        render: function(){
+            return(
+                <ul>
+                {
+                    /* 列表项的数量及内容不确定，在创建模板时才能确定。可以使用this.props.children */
+                    React.Children.map(this.props.children, function(child){
+                        return <li>{child}</li>;
+                    })
+                }
+                </ul>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <ListComponent>
+            <h2>React</h2>
+            <span>Hello</span>            
+            <a href="http://www.google.com">Google</a>
+        </ListComponent>,
+        document.getElementById('container_children')
     );
 
     const Name = React.createClass({
