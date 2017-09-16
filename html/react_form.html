@@ -27,10 +27,10 @@ React 事件
 <script type="text/babel">
     const HelloMessage =  React.createClass({
         getInitialState: function() {
-            return {value: 'Hello React!'};
+            return {value: "Hello React!"};
         },
         handleChange: function(event){
-            this.setState({value: event.target.value})
+            this.setState({value: event.target.value});
         },
         render: function(){
             const result = this.state.value;
